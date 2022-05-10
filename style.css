@@ -29,10 +29,22 @@ body {
 
 li {
   font-size: 20px;
-  transition: 150ms;
+  transition: 150ms ease-in-out;
 }
 
 li:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+#formTesting{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#formChild{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

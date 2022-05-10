@@ -15,6 +15,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    gap: 32px;
 }
 
 #hero {
@@ -29,7 +30,6 @@ body {
 
 #tasks {
     display: flex;
-    margin: auto;
     flex-direction: column;
 }
 
