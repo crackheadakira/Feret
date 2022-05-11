@@ -1,8 +1,10 @@
 import $ from 'jquery';
 
+$('#emptyFieldWarning').hide()
+
 let newTask = {
-  taskTitle: "Empty",
-  taskDescription: "Empty"
+  taskTitle: null,
+  taskDescription: null
 };
 let tasks = [];
 
@@ -18,14 +20,20 @@ $('#submitButton').on('click', () => {
   createNewTask(tasks, newTask);
 })
 
-$('#makeTask').on('click', () => {
-  console.log(JSON.parse(localStorage.getItem('tasks')))
-})
+// $('#makeTask').on('click', () => {
+//   console.log(JSON.parse(localStorage.getItem('tasks')));
+// })
 
 function createNewTask(taskArray, taskInfo) {
+  $('#emptyFieldWarning').hide()
+  if (taskInfo.taskTitle === "" || taskInfo.taskDescription === "") {
+    return $('#emptyFieldWarning').show()
+  };
+
   if (localStorage.getItem('tasks') !== null) {
     taskArray = JSON.parse(localStorage.getItem('tasks'));
-  }
+  };
+
   taskArray.push(taskInfo);
   return localStorage.setItem('tasks', JSON.stringify(taskArray));
 }
